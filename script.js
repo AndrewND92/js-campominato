@@ -1,20 +1,30 @@
+// array dei numeri utente e pc
+var numRandomPc = [];
+var numUtente = [];
+
+
 // genera 16 numeri casuali tra 1 e 100
-var numRandom;
-
-
 for (var i = 0; i < 16; i++) {
-  numRandom = Math.floor(Math.random() * 100)+1;
-
-  console.log(numRandom);
+  num = generatoreNum();
+  numRandomPc.push(num);
 }
 
 // chiedere all'utente tot volte un numero da 1 a 100
-for (var i = 0; i < 4 ; i++) {
+for (var i = 0; i < 84; i++) {
 
-  var numUtente = prompt("insersci un numero tra 1 e 100")
-  console.log(numUtente);
+  var promptUtente = parseInt(prompt("insersci un numero tra 1 e 100"));
+  numUtente.push(promptUtente);
+
+  // controllo se ci sono dei numeri in comune nei due array
+  if (numRandomPc.includes(numUtente[i])) {
+    console.log("hey");
+    break;
+  }
 }
 
-  if (numRandom == numUtente) {
-  console.log("hai perso");
-  }
+
+// FUNZIONE
+ function generatoreNum(){
+   var n = Math.floor(Math.random() * 100)+1;
+   return n;
+ }
